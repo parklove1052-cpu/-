@@ -42,6 +42,18 @@ async function tryFill(page, label, candidates, value) {
 const inputNearLabel = (text) => (page) =>
   page.locator(`xpath=//*[normalize-space(text())="${text}"]/ancestor::*[.//input][1]//input[not(@type="checkbox") and not(@type="radio")]`);
 
+// 즉시할인: 판매가 100,000원 - 할인 45,100원 = 할인가 54,900원
+async function setDiscount(page, amount, salePrice) {
+  try {
+    await page.locator('xpath=//*[normalize-space(text())="할인"]/ancestor::*[.//label][1]//label[contains(normalize-space(.),"설정함")]').first().click({ timeout: 3000 });
+  } catch { /* 이미 켜져 있거나 화면 구조가 다름 */ }
+  const ok = await tryFill(page, '즉시할인 금액(원)', [
+    (pg) => pg.getByPlaceholder(/할인/),
+    inputNearLabel('기본할인'),
+  ], amount);
+  if (ok) console.log(`  ℹ️  할인 단위가 "원"인지, 할인가가 ${salePrice.toLocaleString()}원으로 표시되는지 확인하세요`);
+}
+
 async function setCategory(page, p) {
   await tryFill(page, '카테고리 검색', [
     (pg) => pg.getByPlaceholder(/카테고리/),
@@ -99,6 +111,7 @@ function printManualChecklist(p, common) {
   [옵션] 조합형 옵션 사용
 ${opt}
      - 직접입력형 옵션: ${p.textOption}
+  [가격] 판매가 ${data.common.price.toLocaleString()}원 · 즉시할인 ${(data.common.price - data.common.salePrice).toLocaleString()}원(원 단위) → 할인가 ${data.common.salePrice.toLocaleString()}원
   [배송] 배송속성 = "주문 확인 후 제작", 발송 소요일 = ${common.shippingDays}일
   [상품주요정보] 브랜드·제조사: 계정에 설정된 값 확인 / 모델명: ${p.modelName} / 원산지: ${common.origin}
   [상품정보제공고시] 가방 카테고리 항목 전체 입력
@@ -115,7 +128,9 @@ async function registerOne(page, p) {
 
   await setCategory(page, p);
   await tryFill(page, '상품명', [(pg) => pg.getByPlaceholder(/상품명/), inputNearLabel('상품명')], p.name);
-  await tryFill(page, '판매가', [(pg) => pg.getByPlaceholder(/판매가/), inputNearLabel('판매가')], p.price);
+  const { price, salePrice } = data.common;
+  await tryFill(page, '판매가', [(pg) => pg.getByPlaceholder(/판매가/), inputNearLabel('판매가')], price);
+  await setDiscount(page, price - salePrice, salePrice);
   await tryFill(page, '재고수량', [(pg) => pg.getByPlaceholder(/재고/), inputNearLabel('재고수량')], data.common.stock);
   await uploadMainImage(page, p);
 

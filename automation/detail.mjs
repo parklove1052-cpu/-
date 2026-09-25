@@ -32,7 +32,7 @@ ${cta('옵션에서 나만의 가방 주문하기')}
 <table style="width:100%;border-collapse:collapse;font-size:15px"><tr>${custom}</tr></table>
 
 <h3 style="font-family:${serif};font-weight:normal;font-size:22px;margin-top:60px">주문 과정</h3>
-<p>I. 가죽 색상과 디테일 선택　II. 각인 문구 입력　III. 약 ${common.shippingDays}일간 수작업 제작 후 발송</p>
+<p>I. 원단 색상과 디테일 선택　II. 이니셜 · 이름 자수 문구 입력　III. 약 ${common.shippingDays}일간 수작업 제작 후 발송</p>
 <p style="color:${GOLD}">사이즈·스트랩 길이·로고 등 옵션 밖의 맞춤은 톡톡 1:1 상담으로 제작합니다.</p>
 
 ${imgs}
