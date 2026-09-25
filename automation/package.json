@@ -1,0 +1,12 @@
+{
+  "name": "smartstore-register",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "register": "node register.mjs",
+    "preview": "node preview.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}
