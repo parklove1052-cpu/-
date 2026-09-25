@@ -100,7 +100,7 @@ function printManualChecklist(p, common) {
 ${opt}
      - 직접입력형 옵션: ${p.textOption}
   [배송] 배송속성 = "주문 확인 후 제작", 발송 소요일 = ${common.shippingDays}일
-  [상품주요정보] 브랜드: ${data.brand} / 제조사: ${common.manufacturer} / 모델명: ${p.modelName} / 원산지: ${common.origin}
+  [상품주요정보] 브랜드·제조사: 계정에 설정된 값 확인 / 모델명: ${p.modelName} / 원산지: ${common.origin}
   [상품정보제공고시] 가방 카테고리 항목 전체 입력
   [반품/교환] 맞춤 제작 상품의 청약철회 제한 문구 입력:
      "${common.customNotice}"
@@ -119,7 +119,7 @@ async function registerOne(page, p) {
   await tryFill(page, '재고수량', [(pg) => pg.getByPlaceholder(/재고/), inputNearLabel('재고수량')], data.common.stock);
   await uploadMainImage(page, p);
 
-  const html = buildDetailHtml(p, data.common, data.brand);
+  const html = buildDetailHtml(p, data.common);
   mkdirSync(resolve(productsDir, 'out'), { recursive: true });
   writeFileSync(resolve(productsDir, 'out', `${p.id}.html`), html);
   await fillDetail(page, html);

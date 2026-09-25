@@ -8,7 +8,7 @@
 ## 사용 방법 (내 PC에서)
 
 1. [Node.js](https://nodejs.org) LTS와 크롬을 설치합니다.
-2. `products/products.json`에서 `브랜드명`을 실제 브랜드명으로 바꾸고, 가격·소재·사이즈를 실제 값으로 고칩니다.
+2. 브랜드는 스마트스토어 계정 설정값을 씁니다. `products/products.json`의 가격·소재·사이즈가 실제 제품과 맞는지 확인합니다.
 3. 대표이미지를 `products/images/product1/main.jpg`처럼 넣습니다. 추가이미지는 같은 폴더에 넣고 `images.extra`에 경로를 적습니다.
    상세페이지 이미지는 외부 URL(이미지 호스팅)이 있으면 `images.detailUrls`에 넣고, 없으면 등록 화면에서 직접 올립니다.
 4. 미리보기: `cd automation && npm install && npm run preview` → `products/out/*.html`을 브라우저로 엽니다.

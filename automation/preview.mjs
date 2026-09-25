@@ -9,6 +9,6 @@ const data = JSON.parse(readFileSync(resolve(productsDir, 'products.json'), 'utf
 mkdirSync(resolve(productsDir, 'out'), { recursive: true });
 for (const p of data.products) {
   const file = resolve(productsDir, 'out', `${p.id}.html`);
-  writeFileSync(file, `<!doctype html><meta charset="utf-8"><title>${p.name}</title>${buildDetailHtml(p, data.common, data.brand)}`);
+  writeFileSync(file, `<!doctype html><meta charset="utf-8"><title>${p.name}</title>${buildDetailHtml(p, data.common)}`);
   console.log(`${p.id} (${p.name.length}자) → ${file}`);
 }

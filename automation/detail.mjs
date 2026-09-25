@@ -1,39 +1,49 @@
 // 상세설명 HTML 생성기 — 스마트스토어 상세설명의 "HTML 작성" 탭에 들어갈 HTML을 만듭니다.
 // SEO를 위해 이미지뿐 아니라 텍스트 블록(맞춤 항목, 주문 단계, 스펙, 고지)을 반드시 포함합니다.
+// 톤: 고급 아틀리에 — 세리프 헤드라인, 아이보리·차콜·골드, 넓은 여백, 과장 문구 없음.
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
-export function buildDetailHtml(p, common, brand) {
+const GOLD = '#9a7b4f';
+const INK = '#2b2723';
+const serif = "'Nanum Myeongjo','Noto Serif KR',serif";
+
+export function buildDetailHtml(p, common) {
   const d = p.detail;
   // 상세 이미지는 스마트스토어 HTML 모드에서 외부 URL만 쓸 수 있습니다(로컬 파일 불가).
   const imgs = (p.images.detailUrls || [])
     .map((u) => `<img src="${esc(u)}" alt="${esc(p.name)}" style="width:100%;display:block">`)
     .join('\n');
-  const optionNames = Object.keys(p.options);
-  const specRows = Object.entries(d.spec)
-    .map(([k, v]) => `<tr><th style="padding:8px;background:#f5f2ee;width:30%">${esc(k)}</th><td style="padding:8px">${esc(v)}</td></tr>`)
+  const custom = [...Object.keys(p.options), p.textOption.replace(/\(.*\)/, '')]
+    .map((k) => `<td style="padding:18px 8px;border-top:1px solid ${GOLD};border-bottom:1px solid ${GOLD}">${esc(k)}</td>`)
     .join('');
+  const specRows = Object.entries(d.spec)
+    .map(([k, v]) => `<tr><th style="padding:12px 8px;width:28%;font-weight:normal;color:${GOLD};border-bottom:1px solid #e6e0d6">${esc(k)}</th><td style="padding:12px 8px;border-bottom:1px solid #e6e0d6">${esc(v)}</td></tr>`)
+    .join('');
+  const cta = (text) => `<p style="display:inline-block;margin:28px 0;padding:14px 40px;border:1px solid ${INK};letter-spacing:2px;font-size:15px">${text}</p>`;
 
-  return `<div style="max-width:860px;margin:0 auto;font-family:sans-serif;color:#222;line-height:1.7;text-align:center">
-<h2 style="font-size:28px;margin:40px 0 8px">${esc(d.headline)}</h2>
-<p style="font-size:17px;color:#555">${esc(d.sub)}</p>
-<p style="display:inline-block;margin:16px 0;padding:12px 24px;background:#222;color:#fff;border-radius:30px;font-weight:bold">▼ 지금 옵션에서 내 가방 만들기</p>
+  return `<div style="max-width:860px;margin:0 auto;padding:0 20px;background:#faf8f4;font-family:'Noto Sans KR',sans-serif;color:${INK};line-height:1.9;text-align:center">
+<p style="padding-top:60px;letter-spacing:6px;font-size:12px;color:${GOLD}">MADE TO ORDER · ${esc(p.modelName)}</p>
+<h2 style="font-family:${serif};font-size:30px;font-weight:normal;margin:12px 0">${esc(d.headline)}</h2>
+<p style="font-size:16px;color:#6b635a">${esc(d.sub)}</p>
+${cta('옵션에서 나만의 가방 주문하기')}
 
-<h3 style="margin-top:40px">${esc(brand)} 맞춤 제작 가능 항목</h3>
-<p>${optionNames.map(esc).join(' · ')} · ${esc(p.textOption)}</p>
+<h3 style="font-family:${serif};font-weight:normal;font-size:22px;margin-top:60px">맞춤으로 정할 수 있는 것</h3>
+<table style="width:100%;border-collapse:collapse;font-size:15px"><tr>${custom}</tr></table>
 
-<h3 style="margin-top:40px">주문 방법 3단계</h3>
-<p>① 도안(${esc(p.modelName)}) 선택 → ② 옵션에서 색상 선택 · 문구 입력 → ③ 주문 확인 후 ${common.shippingDays}일 이내 제작 · 발송</p>
-<p style="color:#8a5a2b;font-weight:bold">사이즈 변경 · 로고 삽입 · 단체 주문은 톡톡으로 문의하세요. 24시간 안에 시안을 보내드립니다.</p>
+<h3 style="font-family:${serif};font-weight:normal;font-size:22px;margin-top:60px">주문 과정</h3>
+<p>I. 가죽 색상과 디테일 선택　II. 각인 문구 입력　III. 약 ${common.shippingDays}일간 수작업 제작 후 발송</p>
+<p style="color:${GOLD}">사이즈·스트랩 길이·로고 등 옵션 밖의 맞춤은 톡톡 1:1 상담으로 제작합니다.</p>
 
 ${imgs}
 
-<h3 style="margin-top:40px">상품 정보</h3>
+<h3 style="font-family:${serif};font-weight:normal;font-size:22px;margin-top:60px">Details</h3>
 <table style="width:100%;border-collapse:collapse;text-align:left;font-size:15px">${specRows}
-<tr><th style="padding:8px;background:#f5f2ee">원산지</th><td style="padding:8px">${esc(common.origin)} (핸드메이드 맞춤 제작)</td></tr></table>
+<tr><th style="padding:12px 8px;font-weight:normal;color:${GOLD};border-bottom:1px solid #e6e0d6">제작</th><td style="padding:12px 8px;border-bottom:1px solid #e6e0d6">${esc(common.origin)} · 주문 후 수작업 제작 (약 ${common.shippingDays}일)</td></tr></table>
 
-<h3 style="margin-top:40px">맞춤 제작 상품 안내</h3>
-<p style="font-size:14px;color:#666">${esc(common.customNotice)}</p>
-<p style="display:inline-block;margin:24px 0 60px;padding:12px 24px;background:#222;color:#fff;border-radius:30px;font-weight:bold">▲ 옵션 선택하고 나만의 가방 주문하기</p>
+<h3 style="font-family:${serif};font-weight:normal;font-size:20px;margin-top:60px">맞춤 제작 안내</h3>
+<p style="font-size:13px;color:#8a8279">${esc(common.customNotice)}</p>
+${cta('나만의 가방 주문하기')}
+<div style="height:40px"></div>
 </div>`;
 }
