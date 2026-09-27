@@ -1,0 +1,487 @@
+<title>부화·육성 설비 카탈로그</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f3f5f6; --surface:#ffffff; --ink:#1b2328; --muted:#5a666e; --line:#d5dbdf;
+  --accent:#b77a00; --accent-soft:#fbefd2; --steel:#2f4a5c; --steel-soft:#e3ebf0;
+  --warn:#9a3b12; --warn-soft:#fbe6dc;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#12171a; --surface:#1a2125; --ink:#e6ecef; --muted:#9aa8b0; --line:#2d383e;
+    --accent:#f0b43a; --accent-soft:#3a2d10; --steel:#9cc0d6; --steel-soft:#1f2d36;
+    --warn:#f29a70; --warn-soft:#3b2117;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#12171a; --surface:#1a2125; --ink:#e6ecef; --muted:#9aa8b0; --line:#2d383e;
+  --accent:#f0b43a; --accent-soft:#3a2d10; --steel:#9cc0d6; --steel-soft:#1f2d36;
+  --warn:#f29a70; --warn-soft:#3b2117;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:32px 64px}
+h1,h2,h3{text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:28px;font-weight:700}
+h2{font-size:21px;font-weight:700;margin-bottom:6px}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+.lede{color:var(--muted);max-width:68ch;margin-top:10px}
+.notice{margin-top:18px;background:var(--warn-soft);color:var(--ink);border-left:3px solid var(--warn);padding:12px 14px;border-radius:4px;max-width:78ch}
+.notice b{color:var(--warn)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+nav.toc a{font-size:13px;text-decoration:none;color:var(--steel);background:var(--steel-soft);padding:5px 11px;border-radius:999px}
+nav.toc a:hover,nav.toc a:focus-visible{outline:2px solid var(--steel);outline-offset:1px}
+section{margin-top:48px}
+.sec-sub{color:var(--muted);max-width:72ch;margin-bottom:18px}
+.group-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:26px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.origin{font-size:12px;color:var(--muted)}
+.model{font-size:13.5px;color:var(--steel);font-weight:500}
+.card p.desc{font-size:14px;color:var(--ink)}
+dl.spec{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:13px}
+dl.spec dt{color:var(--muted)}
+dl.spec dd{margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.price{font-size:13px;background:var(--accent-soft);padding:6px 9px;border-radius:4px}
+.price b{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.tag{font-size:11px;font-weight:500;padding:1px 7px;border-radius:3px;margin-left:4px;vertical-align:1px}
+.tag.src{background:var(--steel-soft);color:var(--steel)}
+.tag.est{background:var(--warn-soft);color:var(--warn)}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.links a{font-size:12.5px;text-decoration:none;border:1px solid var(--line);color:var(--ink);padding:4px 9px;border-radius:4px}
+.links a.photo{border-color:var(--steel);color:var(--steel);font-weight:500}
+.links a:hover,.links a:focus-visible{background:var(--steel-soft);outline:none}
+.table-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.03em;background:var(--steel-soft)}
+td.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.diagram{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;overflow-x:auto}
+.diagram svg{display:block;min-width:640px;width:100%;height:auto}
+.foot{margin-top:40px;font-size:12.5px;color:var(--muted);max-width:80ch}
+ul.plain{margin:8px 0 0;padding-left:18px}
+ul.plain li{margin:3px 0}
+@media (max-width:480px){h1{font-size:23px}.grid{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>부화·육성 설비 카탈로그</h1>
+    <p class="lede">부화기 제조사(유럽·북미·중국)와 산란계 중추용 케이지(H형 다단 육추·육성 겸용, 평사형 에이비어리 육성 시스템)를 제조사별로 모았습니다. 각 카드의 <b>공식 사진</b> 버튼을 누르면 제조사의 제품 사진 페이지가, <b>이미지 검색</b> 버튼을 누르면 현장 설치 사진 검색 결과가 새 탭에서 열립니다.</p>
+    <div class="notice"><b>사진과 가격 안내</b> · 이 페이지는 외부 이미지를 직접 불러올 수 없는 환경이라 사진 대신 링크로 연결했습니다. 가격 옆의 <span class="tag src">출처</span> 표시는 공개된 판매·견적 자료에서 확인한 값이고, <span class="tag est">추정</span> 표시는 공개 가격이 없어 업계 관행으로 잡은 대략적인 범위입니다. 유럽 대형 장비는 정가를 공개하지 않으므로 반드시 견적을 받아 확인하세요. 환율은 1달러 = 약 1,400원, 1유로 = 약 1,550원으로 계산했습니다.</div>
+    <nav class="toc" aria-label="목차">
+      <a href="#incubators">대형 부화기 (유럽·북미)</a>
+      <a href="#china-inc">중국산 부화기</a>
+      <a href="#htype">H형 다단 육추·육성 케이지</a>
+      <a href="#aviary">에이비어리 육성 시스템</a>
+      <a href="#compare">구조 비교 그림</a>
+      <a href="#price">가격대 요약</a>
+    </nav>
+  </header>
+
+  <!-- ============ INCUBATORS ============ -->
+  <section id="incubators">
+    <h2>대형 부화기 · 유럽·북미 5대 제조사</h2>
+    <p class="sec-sub">모두 싱글스테이지(한 회차씩 넣고 빼는 방식) 입란기(Setter)와 발생기(Hatcher)를 세트로 공급합니다. 부화장 설계, 공조, 병아리 처리 라인까지 턴키로 맡는 경우가 많습니다.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="top"><h3>Petersime</h3><span class="origin">벨기에</span></div>
+        <div class="model">BioStreamer™ / BioStreamer HD · X-Streamer™ HD</div>
+        <p class="desc">세계 점유율 최상위권입니다. 배아 반응형 부화 기술(CO₂ 제어, 난중 감량 관리, 동시 발생 관리)이 강점입니다. HD 모델은 같은 면적에 종란을 약 12% 더 넣습니다.</p>
+        <dl class="spec"><dt>입란 용량</dt><dd>19,200 ~ 115,200개/대</dd><dt>대차 기준</dt><dd>4,800개/대차</dd><dt>중고</dt><dd>‘Petersime Approved’ 공식 인증 중고</dd></dl>
+        <div class="price">입란기 1대(57,600~115,200개급) <b>약 1.5억 ~ 4억 원</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.petersime.com/en/products/incubators/s-line-incubators/the-s-line-product-range/biostreamer-high-density/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.agriexpo.online/prod/petersime/product-183697-65544.html" target="_blank" rel="noopener">AgriExpo 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Petersime+BioStreamer+setter+hatchery" target="_blank" rel="noopener">이미지 검색</a>
+          <a href="https://www.petersime.com/petersime-approved" target="_blank" rel="noopener">인증 중고</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Royal Pas Reform</h3><span class="origin">네덜란드</span></div>
+        <div class="model">SmartSetPro™ · SmartSense™ Setter · SmartHatch™</div>
+        <p class="desc">문을 닫은 채 운영하는 싱글스테이지 입란기 중 최대 용량 제품이 있습니다. 부화장 턴키 설계와 병아리 처리 자동화 라인도 함께 공급합니다.</p>
+        <dl class="spec"><dt>입란 용량</dt><dd>최대 115,200개/대</dd><dt>발생기 예</dt><dd>SmartHatchPro 19,200개/대</dd></dl>
+        <div class="price">입란기 1대 <b>약 1.5억 ~ 4억 원</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.pasreform.com/en/solutions/2/incubation/12/smartsetprotm-setter" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.pasreform.com/en/smartsense" target="_blank" rel="noopener">SmartSense</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Pas+Reform+SmartSet+setter+hatchery" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>HatchTech</h3><span class="origin">네덜란드</span></div>
+        <div class="model">MicroClimer™ Setter / Hatcher (150·88 시리즈)</div>
+        <p class="desc">종란 사이 미세기류를 균일하게 만드는 방식이 특징입니다. 발생 직후 병아리에게 사료·물을 주는 ‘HatchCare’ 발생기로 알려져 있습니다.</p>
+        <dl class="spec"><dt>입란판</dt><dd>150개/판</dd><dt>대차 용량</dt><dd>7,000 ~ 26,000개/대차</dd></dl>
+        <div class="price">입란기 1대 <b>약 1.5억 ~ 4억 원</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://hatchtech.com/our_solutions/hatchtech_microclimer_setters" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://hatchtech.com/hatchery-products/microclimer-hatchers/" target="_blank" rel="noopener">발생기</a>
+          <a href="https://www.google.com/search?tbm=isch&q=HatchTech+MicroClimer+setter" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Chick Master</h3><span class="origin">미국·영국</span></div>
+        <div class="model">Avida™ Setter / Avida Hatcher</div>
+        <p class="desc">미국 육계·산란계 계열사에서 많이 씁니다. 싱글스테이지와 멀티스테이지 모델을 모두 공급합니다.</p>
+        <dl class="spec"><dt>입란기</dt><dd>10,000 ~ 133,000개/대</dd><dt>발생기</dt><dd>20,000 ~ 60,000개/대</dd></dl>
+        <div class="price">입란기 1대 <b>약 1.2억 ~ 3.5억 원</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.agriexpo.online/prod/chickmaster/product-176872-65547.html" target="_blank" rel="noopener">AgriExpo 사진</a>
+          <a href="https://pdf.agriexpo.online/pdf/chickmaster/avida/176872-13931.html" target="_blank" rel="noopener">카탈로그 PDF</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Chick+Master+Avida+setter" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Jamesway</h3><span class="origin">캐나다</span></div>
+        <div class="model">Platinum 2.0 싱글스테이지 (P10 ~ P120)</div>
+        <p class="desc">북미 표준 장비 중 하나입니다. 1만 개 소형부터 12만 개 이상 대형까지 모델 폭이 넓습니다.</p>
+        <dl class="spec"><dt>입란 용량</dt><dd>10,000 ~ 129,024개/대</dd><dt>발생기</dt><dd>Platinum 2.0 Hatcher</dd></dl>
+        <div class="price">입란기 1대 <b>약 1.2억 ~ 3.5억 원</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://jamesway.com/products/single-stage/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.youtube.com/watch?v=efEzHNRJWs4" target="_blank" rel="noopener">영상</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Jamesway+Platinum+2.0+incubator" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>중고 유럽산 부화기</h3><span class="origin">네덜란드 등 딜러</span></div>
+        <div class="model">Petersime · Pas Reform 중고 (57,600 / 115,200개급)</div>
+        <p class="desc">점검·정비를 마친 중고 입란기를 파는 전문 딜러가 있습니다. 초기 투자를 줄이는 대안이지만 제어기 세대, 부품 수급, 국내 A/S 가능 여부를 꼭 확인해야 합니다.</p>
+        <dl class="spec"><dt>대표 딜러</dt><dd>Isotek(NL), Petersime Approved</dd></dl>
+        <div class="price">신품의 <b>약 30 ~ 60%</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.isotek.nl/used-hatchery-equipment/petersime-digital-115200-sold" target="_blank" rel="noopener">중고 매물 사진</a>
+          <a href="https://www.petersime.com/petersime-approved" target="_blank" rel="noopener">Petersime Approved</a>
+        </div>
+      </article>
+    </div>
+
+    <h2 id="china-inc" style="margin-top:40px">중국산 대형 부화기</h2>
+    <p class="sec-sub">가격은 유럽산의 약 1/5 ~ 1/8 수준입니다. 대신 부화율 실적, 온도 균일도, 제어기 내구성, 한국 내 A/S 대응을 반드시 현장 확인해야 합니다. 가능하면 이미 가동 중인 한국·동남아 부화장을 방문해 보세요.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>Beijing Yunfeng (云峰)</h3><span class="origin">중국 베이징</span></div>
+        <div class="model">YFDF 시리즈 (예: YFDF-57600 싱글스테이지)</div>
+        <p class="desc">중국 최초의 전자식 부화기 제조사로, 1950년대부터 부화기를 만들어 왔습니다. 중국 내 대형 부화장 납품 실적이 많습니다.</p>
+        <dl class="spec"><dt>입란 용량</dt><dd>20,000 ~ 57,600개+/대</dd></dl>
+        <div class="price">57,600개급 1대 <b>US$20,000~30,000</b> (약 2,800만~4,200만 원)<span class="tag src">출처</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.eggincubator.com/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://beijingyunfeng.en.made-in-china.com/product/ZnoYdVHuaaUm/China-50000-egg-incubator-large-egg-incubator-new-intelligent-new-type-hatchery-machine.html" target="_blank" rel="noopener">Made-in-China</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Yunfeng+YFDF+57600+incubator" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Sinopfe (Elite)</h3><span class="origin">중국</span></div>
+        <div class="model">ELT-57600S Setter · 60,000개급 세트</div>
+        <p class="desc">싱글스테이지 입란기·발생기 세트를 수출합니다. 대차식이라 유럽산과 운영 방식이 비슷합니다.</p>
+        <dl class="spec"><dt>입란 용량</dt><dd>57,600개/대</dd><dt>최대 전력</dt><dd>9.6 kW</dd><dt>외형</dt><dd>4.5 × 3.8 × 2.7 m</dd></dl>
+        <div class="price">1대 <b>US$20,000~35,000</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.sinopfe.com/sale-13987730-advanced-57600pcs-single-stage-incubator-poultry-hatchery-machine.html" target="_blank" rel="noopener">제품 사진</a>
+          <a href="https://www.sinopfe.com/sale-13987925-60000-hatchery-chicken-egg-single-stage-incubator-hatching-machine.html" target="_blank" rel="noopener">60,000개급</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Dezhou Weiqian (伟乾)</h3><span class="origin">중국 산둥 더저우</span></div>
+        <div class="model">중·소형 캐비닛형 부화기, 대형 조립식</div>
+        <p class="desc">수백 개부터 수만 개급까지 폭넓게 만드는 수출 업체입니다. 대형 사업장의 주력 장비보다는 시험 부화나 보조용으로 검토하세요.</p>
+        <dl class="spec"><dt>입란 용량</dt><dd>수백 ~ 수만 개/대</dd></dl>
+        <div class="price">1만 개급 <b>수백만 원대부터</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.made-in-china.com/showroom/weiqian-poultry/" target="_blank" rel="noopener">제품 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Weiqian+large+egg+incubator+hatchery" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ H-TYPE ============ -->
+  <section id="htype">
+    <h2>H형 다단 육추·육성 겸용 케이지</h2>
+    <p class="sec-sub">1일령부터 16~17주령까지 옮기지 않고 한 케이지에서 키우는 방식입니다. 층마다 분뇨 벨트가 있고 단을 수직으로 쌓아(3~8단) 좁은 면적에 많이 수용합니다. 육추 초기에는 바닥 깔판(칙페이퍼)과 칸막이로 공간을 줄여 씁니다.</p>
+
+    <div class="group-label">유럽 (독일·이탈리아)</div>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>Big Dutchman</h3><span class="origin">독일</span></div>
+        <div class="model">UNIVENT Starter / UNIVENT-Starter 680-plus</div>
+        <p class="desc">육추 단과 육성 단을 나눠 병아리와 중추 요구를 각각 맞춥니다. 분뇨 벨트 송풍(건조) 사양도 선택할 수 있습니다. 가장 많이 팔린 육성 케이지 중 하나입니다.</p>
+        <dl class="spec"><dt>단수</dt><dd>3 ~ 6단</dd><dt>프레임</dt><dd>알루미늄·아연도금</dd></dl>
+        <div class="links">
+          <a class="photo" href="https://www.bigdutchman.com/en/egg-production/products/detail/univent-starter/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.agriexpo.online/prod/big-dutchman/product-171220-164531.html" target="_blank" rel="noopener">AgriExpo 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Big+Dutchman+UNIVENT+Starter+pullet" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Salmet</h3><span class="origin">독일</span></div>
+        <div class="model">S1000 · S1400 · S700 육성 케이지</div>
+        <p class="desc">성장에 맞춰 급이구 폭을 조절하는 슬라이딩 게이트가 특징입니다. S1400은 S1000보다 넓고(폭 1,400mm) 깊고(750mm) 높은(660mm) 개량형입니다.</p>
+        <dl class="spec"><dt>S1400 칸</dt><dd>1400 × 750 × 660 mm</dd></dl>
+        <div class="links">
+          <a class="photo" href="https://salmet.com/product/s1400-cage-rearing-system/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://salmet.de/product/s1000-cage-rearing-system/" target="_blank" rel="noopener">S1000</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Salmet+S1400+rearing+cage" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Valli</h3><span class="origin">이탈리아</span></div>
+        <div class="model">Pullet rearing cage (에어덕트 옵션)</div>
+        <p class="desc">일반 케이지부터 에이비어리, 케이지→에이비어리 전환형까지 갖췄습니다. 케이지 안으로 신선한 공기를 보내는 에어덕트로 분뇨를 말립니다.</p>
+        <dl class="spec"><dt>칸 크기</dt><dd>1000 × 390 × 630~705 mm</dd><dt>에어덕트</dt><dd>PVC 205 ㎠</dd></dl>
+        <div class="links">
+          <a class="photo" href="https://www.valli-italy.com/en/category-products/pullets/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Valli+pullet+rearing+cage" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Facco</h3><span class="origin">이탈리아</span></div>
+        <div class="model">Rearing housing systems (C3 등)</div>
+        <p class="desc">이탈리아 대표 케이지 제조사입니다. 다단 육성 케이지와 케이지프리 육성(Libera Pullets)을 함께 공급합니다.</p>
+        <div class="links">
+          <a class="photo" href="https://www.facco.net/en/prodotti/pulcinaia" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.agriexpo.online/prod/facco/product-187865-119903.html" target="_blank" rel="noopener">C3 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Facco+pullet+rearing+cage" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Tecno</h3><span class="origin">이탈리아</span></div>
+        <div class="model">Pullets rearing systems</div>
+        <p class="desc">급이·급수·환기를 한 번에 제어하는 다단 육성 배터리 시스템입니다.</p>
+        <div class="links">
+          <a class="photo" href="https://www.poultryequipment.com/en/pullets/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Tecno+poultry+equipment+pullet+rearing" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+    </div>
+    <div class="price" style="margin-top:12px">유럽산 H형 육성 케이지(급이·급수·분뇨벨트 포함, 설비만) · 수당 <b>약 US$4 ~ 8</b> → 10만 수 <b>약 5.6억 ~ 11억 원</b><span class="tag est">추정</span></div>
+
+    <div class="group-label">중국</div>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>LIVI (Livi Machinery)</h3><span class="origin">중국 허난 정저우</span></div>
+        <div class="model">H-Type Pullet Battery Cage</div>
+        <p class="desc">0~7주 육추부터 육성까지 쓰는 H형 케이지입니다. 2만 5천 수 이상 무창 계사용으로 권장됩니다.</p>
+        <dl class="spec"><dt>구성</dt><dd>케이지·니플급수·자동급이·분뇨벨트</dd></dl>
+        <div class="price">2만 수 세트 <b>US$25,000~45,000 EXW</b> (약 3,500만~6,300만 원)<span class="tag src">출처</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.livicages.com/h-type-layer-chicken-battery-cage-system/" target="_blank" rel="noopener">제품 사진</a>
+          <a href="https://www.livipoultryequipment.com/cost-of-20000-pullet-cage-system-h-type-pullet-equipment/" target="_blank" rel="noopener">가격 자료</a>
+          <a href="https://www.google.com/search?tbm=isch&q=LIVI+H+type+pullet+cage" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>RETECH</h3><span class="origin">중국 허난</span></div>
+        <div class="model">Automatic H Type Pullet Chicken Cage</div>
+        <p class="desc">용융아연도금 3·4단 육추·육성 케이지입니다. 동남아·아프리카 수출 실적이 많습니다.</p>
+        <dl class="spec"><dt>단수</dt><dd>3 · 4단 (그 이상 주문 제작)</dd><dt>재질</dt><dd>용융아연도금</dd></dl>
+        <div class="price">2만 수 기준 <b>US$25,000~50,000</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://www.retechchickencage.com/retech-automatic-h-type-poultry-farm-pullet-chicken-cage-product/" target="_blank" rel="noopener">제품 사진</a>
+          <a href="https://www.retechchickencage.com/manufacturer-poultry-farm-baby-chick-pullet-rearing-cage-product/" target="_blank" rel="noopener">육추 케이지</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Big Herdsman (大牧人)</h3><span class="origin">중국 칭다오</span></div>
+        <div class="model">Pullet Cage System (3~8단)</div>
+        <p class="desc">급이·급수·분뇨·조명·환경제어·IoT 모듈을 묶은 다단 육성 시스템입니다. 중국 내 대형 산란계 기업 납품 실적이 많은, 중국 업체 중 상위권 제조사입니다.</p>
+        <dl class="spec"><dt>단수</dt><dd>3 ~ 8단</dd></dl>
+        <div class="price">중국 일반 업체보다 <b>약 20~50% 높음</b><span class="tag est">추정</span></div>
+        <div class="links">
+          <a class="photo" href="https://bigherdsman.com/blogs/pullet-cage-system-for-poultry-farm-chick-rearing-and-future-egg-production/" target="_blank" rel="noopener">제품 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Big+Herdsman+pullet+cage+system" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+    </div>
+    <div class="price" style="margin-top:12px">중국산 H형(설비만, EXW) · 수당 <b>약 US$1.25 ~ 2.25</b> → 10만 수 <b>약 1.8억 ~ 3.2억 원</b><span class="tag src">출처 기반</span> · 해상운송·관세·설치·환기/제어 장비는 별도</div>
+  </section>
+
+  <!-- ============ AVIARY ============ -->
+  <section id="aviary">
+    <h2>평사형 에이비어리 육성 시스템</h2>
+    <p class="sec-sub">케이지 없이 다단 구조물 위아래를 병아리가 오르내리며 자랍니다. 문이 있어 육추 초기에는 칸 안에 가둬 키우고, 자라면 문을 열어 계사 전체를 쓰게 합니다. 동물복지형(케이지프리) 산란계사로 보낼 중추는 이 방식으로 키워야 바닥란이 줄어듭니다.</p>
+
+    <div class="group-label">유럽 (독일·네덜란드·이탈리아)</div>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>Big Dutchman</h3><span class="origin">독일</span></div>
+        <div class="model">NATURA Primus (3단) · NATURA Filia (2단)</div>
+        <p class="desc">Primus는 3단 육성 에이비어리로 산란 에이비어리로 자연스럽게 넘어가게 해 줍니다. Filia는 병아리와 중추 요구를 모두 맞춘 2단 제품입니다.</p>
+        <div class="links">
+          <a class="photo" href="https://www.bigdutchmanusa.com/egg-production/products/housing-systems/cage-free-aviary-systems/natura-primus/" target="_blank" rel="noopener">Primus 사진</a>
+          <a class="photo" href="https://www.bigdutchmanusa.com/egg-production/products/housing-systems/cage-free-aviary-systems/natura-filia/" target="_blank" rel="noopener">Filia 사진</a>
+          <a href="https://www.bigdutchman.com/en/products/egg-production/pullet-rearing/" target="_blank" rel="noopener">육성 개요</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Big+Dutchman+NATURA+Primus+rearing+aviary" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Vencomatic Group</h3><span class="origin">네덜란드</span></div>
+        <div class="model">Bolegg Starter (육성) → Bolegg Gallery·Terrace (산란)</div>
+        <p class="desc">병아리 발달 단계에 맞춰 조정하는 전용 육성 에이비어리입니다. 같은 회사의 산란 에이비어리로 옮겼을 때 적응이 빠릅니다. 발트 3국 Balticovo 등 대형 농장에 공급했습니다.</p>
+        <div class="links">
+          <a class="photo" href="https://www.vencomaticgroup.com/cage-free-detail" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.vencomaticgroup.com/layers/bolegg-gallery" target="_blank" rel="noopener">Bolegg Gallery</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Vencomatic+Bolegg+Starter+rearing" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Facco</h3><span class="origin">이탈리아</span></div>
+        <div class="model">Libera Pullets (케이지프리 육성)</div>
+        <p class="desc">병아리가 움직이며 운동 능력을 키우도록 설계한 케이지프리 육성 시스템입니다.</p>
+        <div class="links">
+          <a class="photo" href="https://www.youtube.com/watch?v=Ydwyg3Z9Qho" target="_blank" rel="noopener">영상</a>
+          <a href="https://www.facco.net/en/prodotti/pulcinaia" target="_blank" rel="noopener">육성 제품군</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Valli</h3><span class="origin">이탈리아</span></div>
+        <div class="model">육성 에이비어리 · 케이지↔에이비어리 전환형</div>
+        <p class="desc">케이지로 운영하다가 나중에 에이비어리로 바꿀 수 있는 전환형 장비가 있습니다. 규제 방향이 불확실할 때 선택지가 됩니다.</p>
+        <div class="links">
+          <a class="photo" href="https://www.valli-italy.com/en/category-products/pullets/" target="_blank" rel="noopener">공식 사진</a>
+          <a href="https://www.google.com/search?tbm=isch&q=Valli+rearing+aviary+pullets" target="_blank" rel="noopener">이미지 검색</a>
+        </div>
+      </article>
+    </div>
+    <div class="price" style="margin-top:12px">유럽산 육성 에이비어리 · 같은 제조사 케이지보다 <b>수당 약 1.5 ~ 2배</b>, 10만 수 <b>약 8억 ~ 20억 원</b><span class="tag est">추정</span></div>
+
+    <div class="group-label">중국</div>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>Shandong Gofee</h3><span class="origin">중국 산둥</span></div>
+        <div class="model">Chicks Pullet and Production Aviary</div>
+        <p class="desc">육추·육성·산란 에이비어리를 시리즈로 공급합니다.</p>
+        <div class="links">
+          <a class="photo" href="https://chinagofee.en.made-in-china.com/product/gwbTpPkoJGrY/China-Chicks-Pullet-and-Production-Aviary-Systems-for-Poultry-Cage-Market.html" target="_blank" rel="noopener">제품 사진</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>Hightop</h3><span class="origin">중국</span></div>
+        <div class="model">Cage-Free Aviary System</div>
+        <p class="desc">다단 케이지프리 에이비어리에 자동 급이·급수·분뇨벨트를 조합한 제품입니다.</p>
+        <div class="links">
+          <a class="photo" href="https://www.hightoppoultry.com/cage-free-aviary-system/" target="_blank" rel="noopener">제품 사진</a>
+          <a href="https://hightopbatterycage.en.made-in-china.com/product/UwGaIQljHytb/China-Multi-Tier-Cage-Free-Aviary-Systems-Free-Range-Layer-Chicken-Welfare-Cage-With-Automatic-Egg-Collection-Equipment-And-Perches.html" target="_blank" rel="noopener">Made-in-China</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><h3>FamTECH</h3><span class="origin">중국</span></div>
+        <div class="model">Aviary System (Layer & Pullet)</div>
+        <p class="desc">스테인리스·아연도금 판재로 만든 육성·산란 에이비어리입니다.</p>
+        <div class="links">
+          <a class="photo" href="https://famtechpoultrycage.com/aviary-system/" target="_blank" rel="noopener">제품 사진</a>
+        </div>
+      </article>
+    </div>
+    <div class="price" style="margin-top:12px">중국산 육성 에이비어리 · 중국산 H형 케이지보다 <b>수당 약 1.5 ~ 2배</b>, 10만 수 <b>약 3억 ~ 6억 원</b><span class="tag est">추정</span></div>
+  </section>
+
+  <!-- ============ DIAGRAM ============ -->
+  <section id="compare">
+    <h2>구조 비교: H형 케이지 vs 에이비어리</h2>
+    <p class="sec-sub">계사 단면을 단순화한 그림입니다. 사진을 볼 때 어떤 부분을 봐야 하는지 참고하세요.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 760 300" role="img" aria-label="H형 다단 케이지와 에이비어리 단면 비교">
+        <style>
+          .t{font:500 13px "IBM Plex Sans KR",sans-serif;fill:var(--ink)}
+          .s{font:400 11px "IBM Plex Sans KR",sans-serif;fill:var(--muted)}
+          .frame{fill:var(--steel-soft);stroke:var(--steel);stroke-width:1.5}
+          .belt{fill:var(--accent);}
+          .floor{stroke:var(--muted);stroke-width:2}
+          .perch{stroke:var(--steel);stroke-width:3;stroke-linecap:round}
+          .litter{fill:var(--accent-soft);stroke:none}
+        </style>
+        <!-- left: H-type -->
+        <text class="t" x="30" y="24">H형 다단 케이지 (4단 예시)</text>
+        <line class="floor" x1="20" y1="270" x2="360" y2="270"/>
+        <g>
+          <rect class="frame" x="60" y="50" width="100" height="44"/><rect class="belt" x="60" y="94" width="100" height="5"/>
+          <rect class="frame" x="60" y="104" width="100" height="44"/><rect class="belt" x="60" y="148" width="100" height="5"/>
+          <rect class="frame" x="60" y="158" width="100" height="44"/><rect class="belt" x="60" y="202" width="100" height="5"/>
+          <rect class="frame" x="60" y="212" width="100" height="44"/><rect class="belt" x="60" y="256" width="100" height="5"/>
+          <rect class="frame" x="220" y="50" width="100" height="44"/><rect class="belt" x="220" y="94" width="100" height="5"/>
+          <rect class="frame" x="220" y="104" width="100" height="44"/><rect class="belt" x="220" y="148" width="100" height="5"/>
+          <rect class="frame" x="220" y="158" width="100" height="44"/><rect class="belt" x="220" y="202" width="100" height="5"/>
+          <rect class="frame" x="220" y="212" width="100" height="44"/><rect class="belt" x="220" y="256" width="100" height="5"/>
+        </g>
+        <text class="s" x="168" y="120">작업 통로</text>
+        <text class="s" x="30" y="292">■ 칸(케이지)   ▬ 분뇨 벨트 (층마다)</text>
+        <!-- right: aviary -->
+        <text class="t" x="420" y="24">에이비어리 (3단 예시)</text>
+        <line class="floor" x1="400" y1="270" x2="740" y2="270"/>
+        <rect class="litter" x="400" y="262" width="340" height="8"/>
+        <g>
+          <rect class="frame" x="440" y="190" width="110" height="36"/><rect class="belt" x="440" y="226" width="110" height="4"/>
+          <rect class="frame" x="440" y="130" width="110" height="36"/><rect class="belt" x="440" y="166" width="110" height="4"/>
+          <rect class="frame" x="440" y="70"  width="110" height="36"/><rect class="belt" x="440" y="106" width="110" height="4"/>
+          <rect class="frame" x="600" y="190" width="110" height="36"/><rect class="belt" x="600" y="226" width="110" height="4"/>
+          <rect class="frame" x="600" y="130" width="110" height="36"/><rect class="belt" x="600" y="166" width="110" height="4"/>
+          <rect class="frame" x="600" y="70"  width="110" height="36"/><rect class="belt" x="600" y="106" width="110" height="4"/>
+          <line class="perch" x1="555" y1="60" x2="595" y2="60"/>
+          <line class="perch" x1="555" y1="120" x2="595" y2="120"/>
+          <line class="perch" x1="555" y1="180" x2="595" y2="180"/>
+        </g>
+        <text class="s" x="548" y="250">바닥 깔짚</text>
+        <text class="s" x="420" y="292">칸 문을 열면 층 사이·바닥을 자유롭게 이동, ━ 횃대</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ PRICE ============ -->
+  <section id="price">
+    <h2>가격대 요약 · 이번 사업 규모 기준</h2>
+    <p class="sec-sub">기준: 매주 병아리 4만 마리 부화(입란기 약 57,600개급 3대 + 발생기 2대), 중추 10만 수 육성. <b>설비 본체만</b>의 대략적인 범위이며 건물, 부지, 전기 인입, 인허가 비용은 빠져 있습니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>항목</th><th>유럽·북미산</th><th>중국산</th><th>근거</th></tr></thead>
+        <tbody>
+          <tr><td>대형 입란기 1대 (57,600개급)</td><td class="num">약 1.5억 ~ 2.5억 원</td><td class="num">약 2,800만 ~ 4,200만 원</td><td>중국: 판매가 US$20~30k <span class="tag src">출처</span> · 유럽 <span class="tag est">추정</span></td></tr>
+          <tr><td>부화장 설비 일체<br><span class="s" style="color:var(--muted);font-size:12px">입란기 3 + 발생기 2 + 공조 + 병아리 처리 라인 + 발전기</span></td><td class="num">약 15억 ~ 30억 원</td><td class="num">약 3억 ~ 6억 원</td><td><span class="tag est">추정</span></td></tr>
+          <tr><td>H형 육성 케이지 10만 수<br><span class="s" style="color:var(--muted);font-size:12px">케이지·급이·급수·분뇨벨트</span></td><td class="num">약 5.6억 ~ 11억 원</td><td class="num">약 1.8억 ~ 3.2억 원</td><td>중국: 2만 수 US$25~45k EXW <span class="tag src">출처</span></td></tr>
+          <tr><td>에이비어리 육성 10만 수</td><td class="num">약 8억 ~ 20억 원</td><td class="num">약 3억 ~ 6억 원</td><td><span class="tag est">추정</span></td></tr>
+          <tr><td>계사 환경제어(환기팬·쿨링패드·난방·LED·컨트롤러)</td><td class="num">동당 약 1억 ~ 3억 원</td><td class="num">동당 약 3천만 ~ 8천만 원</td><td><span class="tag est">추정</span></td></tr>
+          <tr><td>수입 부대비용</td><td colspan="2">장비가의 <b>약 15 ~ 30%</b> (해상운송, 관세·부가세, 통관, 현지 설치·시운전 인력)</td><td><span class="tag est">추정</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="foot"><b>견적 받을 때 확인할 것</b></p>
+    <ul class="plain foot">
+      <li>부화기: 보증 부화율, 국내 설치 실적과 A/S 인력, 부품 재고 위치, 제어기 원격 모니터링, 정격 전력(발전기 용량 산정용)</li>
+      <li>케이지: 용융아연도금 두께(g/㎡), 수당 면적(㎠)과 급이구 길이, 몇 단인지, 분뇨 벨트 재질, 국내 사육밀도 기준 충족 여부</li>
+      <li>공통: EXW / FOB / CIF 중 어느 조건 가격인지, 설치·시운전 포함 여부, 한국 전압(380V 3상 60Hz) 대응</li>
+      <li>국내에는 Big Dutchman, Petersime 등의 한국 대리점이 있으니 해외 직수입 견적과 비교하세요.</li>
+    </ul>
+    <p class="foot">가격 출처: Beijing Yunfeng YFDF-57600 판매가(made-in-china.com 검색 결과), LIVI 「Cost of 20,000 Pullet Cage System」(livipoultryequipment.com). 용량·사양은 각 제조사 공식 자료와 AgriExpo, WATTPoultry 제품 정보를 참고했습니다. 추정치는 공개 정가가 없는 항목이라 실제 견적과 크게 다를 수 있습니다.</p>
+  </section>
+</div>
